@@ -1,0 +1,13 @@
+name: Bandit Scan
+on: [push, pull_request]
+
+jobs:
+  bandit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: PyCQA/bandit-action@v1
+        with:
+          targets: "*.py"
+          severity: "high"
+          confidence: "high"
