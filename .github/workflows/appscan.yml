@@ -10,8 +10,6 @@ on:
 
 permissions:
   security-events: write
-  actions: read
-  contents: read
 
 jobs:
   run-appscan:
@@ -36,7 +34,7 @@ jobs:
         run: |
           codeSweep --project .
 
-      - name: Upload SARIF report
+      - name: Upload SARIF Report
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: results.sarif
